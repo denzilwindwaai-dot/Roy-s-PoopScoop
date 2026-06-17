@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roy's PoopScoop | Professional Yard Hygiene Langebaan</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --primary-dark: #112a1d;
+            --accent: #2d6a4f;
+            --accent-light: #40916c;
+            --gold: #ffb703;
+            --gold-hover: #fb8500;
+            --light-bg: #f4f7f5;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+            --fb-color: #1877f2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navigation Bar */
+        nav {
+            background-color: var(--primary);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-tagline {
+            color: var(--accent-light);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 24px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links .fb-nav-btn {
+            background-color: var(--fb-color);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .nav-links .fb-nav-btn:hover {
+            background-color: #1565c0;
+            color: var(--white);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(17, 42, 29, 0.85), rgba(27, 67, 50, 0.95)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 35px;
+            color: #d8f3dc;
+            font-weight: 400;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gold);
+            color: var(--primary-dark);
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+        }
+
+        /* Section Setup */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 16px;
+        }
+
+        /* Feature Cards Grid */
+        .grid-three {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border: 1px solid #eef2f0;
+            border-radius: 8px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            position: relative;
+            border-top: 4px solid var(--accent-light);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #4a5568;
+            font-size: 15px;
+        }
+
+        /* General Price Layout cards */
+        .price-summary-box {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .p-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .p-box h4 {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .p-box .p-amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .p-box p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* Pricing Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 18px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        .dog-count {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .rate-value {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .rate-subtext {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: block;
+            font-weight: 400;
+        }
+
+        /* Addons and Promotional Content Panels */
+        .addon-container {
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 1px solid #eef2f0;
+        }
+
+        .addon-container h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 22px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .addon-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px dashed #cbd5e0;
+            align-items: center;
+        }
+
+        .addon-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .addon-info span {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: block;
+        }
+
+        .addon-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .addon-cost {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 16px;
+            white-space: nowrap;
+            padding-left: 15px;
+        }
+
+        .promo-banner {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+            color: var(--primary-dark);
+        }
+
+        .promo-banner strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .promo-banner ul {
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        .promo-banner li {
+            margin-bottom: 5px;
+        }
+
+        /* Call To Action Block */
+        .bottom-cta {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .bottom-cta h2 {
+            color: var(--white);
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .bottom-cta h2::after {
+            display: none;
+        }
+
+        .bottom-cta p {
+            color: #cbd5e0;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .bottom-phone {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+
+        .social-link-box {
+            margin-top: 25px;
+        }
+
+        .btn-facebook {
+            background-color: var(--fb-color);
+            color: var(--white);
+        }
+
+        .btn-facebook:hover {
+            background-color: #135cb3;
+        }
+
+        /* Pop-Up Modal Box Styling for Terms */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 8px;
+            width: 85%;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 75vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            color: var(--text-muted);
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .modal h3 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .modal h4 {
+            color: var(--primary-dark);
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .modal p, .modal ul {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .modal ul {
+            padding-left: 20px;
+        }
+
+        .terms-link {
+            color: var(--gold);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .terms-link:hover {
+            color: var(--white);
+        }
+
+        /* Footer Panels */
+        footer {
+            background-color: #0d1f15;
+            color: #a0aec0;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 13px;
+            border-top: 1px solid #163322;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .disclaimer {
+            font-size: 11px;
+            max-width: 700px;
+            margin: 15px auto 0 auto;
+            line-height: 1.5;
+            color: #718096;
+        }
+
+        /* Responsive Layout Overrides */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .container {
+                padding: 50px 20px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                border: 1px solid #e2e8f0;
+                margin-bottom: 15px;
+                border-radius: 6px;
+                padding: 10px 0;
+                background: var(--white) !important;
+            }
+            td {
+                border: none;
+                padding: 8px 20px;
+                text-align: right;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            td:before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--primary);
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-group">
+                <div class="logo">Roy's PoopScoop</div>
+                <div class="logo-tagline">Professional Yard Hygiene</div>
+            </div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#pricing">Rates</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.facebook.com/profile.php?id=61570530752533" class="fb-nav-btn" target="_blank">👍 Follow Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header Block -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pet Waste Removal, Sorted.</h1>
+            <p>Reliable, structured yard hygiene services catering explicitly to residential homes, secure estates, and premium holiday rentals across Langebaan.</p>
+            <div class="cta-group">
+                <a href="https://wa.me/27686300282" class="btn" target="_blank">Book via WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61570530752533" class="btn btn-secondary" target="_blank">Visit Facebook Page</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="container" id="services">
+        <h2>Our Service Standards</h2>
+        <p class="section-intro">We take the chore out of pet ownership with systematic property clearing built on high bio-security standards.</p>
+        <div class="grid-three">
+            <div class="card">
+                <h3>Thorough Clears</h3>
+                <p>A rigorous ground sweep targeting all assigned lawn profiles, active flowerbeds, and structural walkways to extract animal waste safely.</p>
+            </div>
+            <div class="card">
+                <h3>Bio-Security Protocol</h3>
+                <p>To eliminate cross-contamination vector risks, all toolsets, retrieval buckets, and rubber work boots undergo a virucidal spray treatment before entering your gates.</p>
+            </div>
+            <div class="card">
+                <h3>Instant Notifications</h3>
+                <p>Receive a clear delivery message via WhatsApp the moment our service vehicle departs your location, confirming your property boundaries are completely clean and securely latched.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Strategy Section -->
+    <section class="container" id="pricing" style="border-top: 1px solid #f0f0f0;">
+        <h2>Transparent Rate Structures</h2>
+        <p class="section-intro">Straightforward operational rates tailored strictly to your domestic layout requirements. No hidden surcharges.</p>
+
+        <div class="price-summary-box">
+            <div class="p-box">
+                <h4>Initial Clean-Up</h4>
+                <div class="p-amount">R250</div>
+                <p>Once-off initialization sweep to reset unmaintained properties prior to regular maintenance routing.</p>
+            </div>
+            <div class="p-box">
+                <h4>Holiday Turnarounds</h4>
+                <div class="p-amount">R180</div>
+                <p>Ad-hoc single-visit garden refreshes configured directly inside turnaround slots for local holiday rental hosts.</p>
+            </div>
+            <div class="p-box">
+                <h4>Heavy Accumulation</h4>
+                <div class="p-amount">R450+</div>
+                <p>Variable once-off rates mapped explicitly to long-neglected grounds or severely overgrown lawn elements.</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 20px;">Residential Monthly Retainers</h3>
+        <p style="color: var(--text-muted); font-size: 14px; margin-top: -10px; margin-bottom: 20px;">Fixed monthly subscriptions, billed and payable in advance via Electronic Funds Transfer (EFT).</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dogs on Property</th>
+                        <th>1x Sweep Per Week (4 / month)</th>
+                        <th>2x Sweeps Per Week (8 / month)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="dog-count" data-label="Dogs on Property">1 Dog</td>
+                        <td class="rate-value" data-label="1x Sweep Per Week"><span class="r-price">R550</span> <span class="rate-subtext">Fixed monthly Retainer (~R137 per visit)</span></td>
+                        <td class="rate-value" data-label="2x Sweeps Per Week"><span class="r-price">R950</span> <span class="rate-subtext">Fixed monthly Retainer (~R118 per visit)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="dog-count" data-label="Dogs on Property">2 Dogs</td>
+                        <td class="rate-value" data-label="1x Sweep Per Week"><span class="r-price">R650</span> <span class="rate-subtext">Fixed monthly Retainer (~R162 per visit)</span></td>
+                        <td class="rate-value" data-label="2x Sweeps Per Week"><span class="r-price">R1,150</span> <span class="rate-subtext">Fixed monthly Retainer (~R143 per visit)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="dog-count" data-label="Dogs on Property">3 Dogs</td>
+                        <td class="rate-value" data-label="1x Sweep Per Week"><span class="r-price">R750</span> <span class="rate-subtext">Fixed monthly Retainer (~R187 per visit)</span></td>
+                        <td class="rate-value" data-label="2x Sweeps Per Week"><span class="r-price">R1,350</span> <span class="rate-subtext">Fixed monthly Retainer (~R168 per visit)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="dog-count" data-label="Dogs on Property">4+ Dogs</td>
+                        <td colspan="2" style="text-align: center; color: var(--text-muted); font-style: italic; padding: 20px;">
+                            Custom Project Pricing Required — Scaled to total property square meter footprint.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Upgrades & Incentives Subpanel -->
+        <div class="addon-container">
+            <h3>Specialized Hygiene Add-Ons</h3>
+            <div class="addon-row">
+                <div class="addon-info">
+                    <span>Eco-Friendly Organic Deodorizer Spray</span>
+                    <p>High-pressure application of a pet-safe organic virucide to eliminate lingering garden tracking odors.</p>
+                </div>
+                <div class="addon-cost">+R50 / application</div>
+            </div>
+            <div class="addon-row">
+                <div class="addon-info">
+                    <span>Patio, Decking & Hard-Surface Enzyme Wash</span>
+                    <p>Targeted manual scrubbing and rinsing of brickwork, paving tiles, or wooden decks to remove waste blemish traces.</p>
+                </div>
+                <div class="addon-cost">+R80 / application</div>
+            </div>
+            <div class="addon-row">
+                <div class="addon-info">
+                    <span>Lawn Nitrogen Spot Correction</span>
+                    <p>Application of dedicated organic amendments to help correct yellow and brown burn spots caused by pet tracking.</p>
+                </div>
+                <div class="addon-cost">+R100 / month</div>
+            </div>
+
+            <div class="promo-banner">
+                <strong>Route Density Incentives:</strong>
+                <ul>
+                    <li><strong>The Neighbor Discount:</strong> Secure a flat 10% reduction on your monthly contract tier if your immediate next-door neighbor transitions to any regular subscription layout.</li>
+                    <li><strong>Estate Co-Op Tier:</strong> Enclosed estate residents (e.g., Langebaan Country Estate, Blue Lagoon, Calypso Beach) qualify for a 10% structural reduction when 3 or more neighboring properties line up their clear days together.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Call To Action Area -->
+    <section class="bottom-cta" id="contact">
+        <div class="container" style="padding: 0;">
+            <h2>Take Back Your Weekends</h2>
+            <p>Request an instant quote layout over text or join our local business community online.</p>
+            <div class="bottom-phone">📍 WhatsApp / Call: 068 630 0282</div>
+            <div class="cta-group">
+                <a href="https://wa.me/27686300282" class="btn" target="_blank">Chat on WhatsApp Now</a>
+                <a href="https://www.facebook.com/profile.php?id=61570530752533" class="btn btn-facebook" target="_blank">Connect via Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Terms of Service Pop-Up Modal Box -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeTerms()">&times;</span>
+            <h3>Terms of Service</h3>
+            <p>Welcome to Roy's PoopScoop. By subscribing to or booking our yard hygiene services, you agree to the following operational parameters:</p>
+            
+            <h4>1. Property Access & Security</h4>
+            <p>Yards, service gates, and properties must be fully accessible on your scheduled service day. If our team arrives and cannot access the area due to locked gates or restricted estate codes, the visit will be forfeited but still billed at your full standard rate.</p>
+            
+            <h4>2. Pet Safety & Aggression</h4>
+            <p>For the safety of our operators, aggressive or highly protective dogs must be safely secured inside the house or a separate enclosure during our service window. We reserve the right to decline entry if an unsecured dog poses a perceived threat.</p>
+            
+            <h4>3. Lawn Maintenance Requirements</h4>
+            <p>To ensure we locate and remove all pet waste effectively, lawns must be kept cut to a reasonable, maintained length. Excessively long or un-mowed grass drastically reduces visibility; while we perform thorough sweeps, we cannot be held liable for missed waste hidden in overgrown brush or long grass profiles.</p>
+            
+            <h4>4. Billing & Payments</h4>
+            <p>All recurring residential monthly retainer plans are billed and strictly payable in advance via Electronic Funds Transfer (EFT). Ad-hoc holiday rental visits or initial cleanup surcharges are payable immediately upon invoice receipt.</p>
+            
+            <h4>5. Weather and Service Delays</h4>
+            <p>Severe West Coast weather events (high wind storms or torrential rain) may occasionally interrupt scheduled service routes. In these instances, services will be shifted to the next immediate safe clearing day to ensure thorough yard sanitization.</p>
+
+            <h4>6. Service Exclusions</h4>
+            <p>Roy's PoopScoop is strictly a specialized property hygiene and animal waste clearing business. Under no circumstances do we offer or perform lawn mowing, weed pulling, hedge trimming, landscaping, or standard green garden waste removal.</p>
+        </div>
+    </div>
+
+    <!-- Standard Footer Area -->
+    <footer>
+        <p>&copy; 2026 Roy's PoopScoop Langebaan. All Rights Reserved. | <span class="terms-link" onclick="openTerms()">Terms of Service</span></p>
+        <p class="disclaimer">All ongoing property hygiene deployments operate under our standardized corporate Terms of Service parameters. Please note: Our core operation focuses strictly on waste processing and property hygiene; we do not provide lawn mowing, edging, landscaping, or green garden disposal services.</p>
+    </footer>
+
+    <!-- Simple JavaScript to Open and Close the Pop-up Window -->
+    <script>
+        function openTerms() {
+            document.getElementById("termsModal").style.display = "block";
+        }
+        function closeTerms() {
+            document.getElementById("termsModal").style.display = "none";
+        }
+        // Close modal automatically if user clicks outside of the pop-up box
+        window.onclick = function(event) {
+            var modal = document.getElementById("termsModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
